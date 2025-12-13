@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors & Team | MediCare Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Doctors page specific styles */
+        .doctor-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .doctor-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--secondary);
+        }
+        
+        .doctor-card h3 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .specialty {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .qualification {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .experience {
+            display: inline-block;
+            background: var(--secondary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .doctor-details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .detail-label {
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .detail-value {
+            color: var(--primary);
+        }
+        
+        .team-section {
+            background-color: var(--secondary);
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+        
+        .team-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .team-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .department-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .dept-btn {
+            background: var(--white);
+            border: 2px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .dept-btn:hover, .dept-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .doctor-contact {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-btn {
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .btn-consult {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-profile {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .availability {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        .available {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .limited {
+            background: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-hospital"></i></div>
+                <div class="logo-text">Medi<span>Care</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services & Facilities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="doctors.html" class="active">Doctors & Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Medical Team</h1>
+                <p>Meet our dedicated team of healthcare professionals committed to your wellbeing.</p>
+            </div>
+        </section>
+        
+        <section class="page-content">
+            <div class="container">
+                <div class="department-filter">
+                    <button class="dept-btn active" data-dept="all">All Doctors</button>
+                    <button class="dept-btn" data-dept="cardiology">Cardiology</button>
+                    <button class="dept-btn" data-dept="orthopedics">Orthopedics</button>
+                    <button class="dept-btn" data-dept="neurology">Neurology</button>
+                    <button class="dept-btn" data-dept="pediatrics">Pediatrics</button>
+                    <button class="dept-btn" data-dept="surgery">Surgery</button>
+                </div>
+                
+                <div class="section-title">
+                    <h2>Specialist Doctors</h2>
+                    <p>Our doctors are board-certified specialists with extensive experience in their fields.</p>
+                </div>
+                
+                <div class="grid-3 doctor-list">
+                    <!-- Doctor 1 -->
+                    <div class="doctor-card card cardiology">
+                        <img src="images/dr_sarah.jpg" alt="Dr. Sarah Johnson" class="doctor-img">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <div class="specialty">Cardiologist</div>
+                        <div class="qualification">MD, FACC</div>
+                        <div class="experience">15+ Years Experience</div>
+                        <p>Specializes in interventional cardiology and heart failure management.</p>
+                        <div class="availability available">Available</div>
+                        
+                        <div class="doctor-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Department:</span>
+                                <span class="detail-value">Cardiology</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Consultation:</span>
+                                <span class="detail-value">$200</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Timing:</span>
+                                <span class="detail-value">Mon-Fri, 9AM-5PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="doctor-contact">
+                            <a href="appointment.html" class="contact-btn btn-consult">Book Appointment</a>
+                            <a href="#" class="contact-btn btn-profile">View Profile</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Doctor 2 -->
+                    <div class="doctor-card card orthopedics">
+                        <img src="images/dr_michal.jpg" alt="Dr. Michael Chen" class="doctor-img">
+                        <h3>Dr. Michael Chen</h3>
+                        <div class="specialty">Orthopedic Surgeon</div>
+                        <div class="qualification">MD, FAAOS</div>
+                        <div class="experience">12+ Years Experience</div>
+                        <p>Expert in joint replacement, sports medicine, and minimally invasive surgery.</p>
+                        <div class="availability available">Avalable</div>
+                        
+                        <div class="doctor-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Department:</span>
+                                <span class="detail-value">Orthopedics</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Consultation:</span>
+                                <span class="detail-value">$250</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Timing:</span>
+                                <span class="detail-value">Mon-Sat, 10AM-6PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="doctor-contact">
+                            <a href="appointment.html" class="contact-btn btn-consult">Book Appointment</a>
+                            <a href="#" class="contact-btn btn-profile">View Profile</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Doctor 3 -->
+                    <div class="doctor-card card neurology">
+                        <img src="images/dr_emily.jpg" alt="Dr. Emily Rodriguez" class="doctor-img">
+                        <h3>Dr. Emily Rodriguez</h3>
+                        <div class="specialty">Neurologist</div>
+                        <div class="qualification">MD, FAAN</div>
+                        <div class="experience">18+ Years Experience</div>
+                        <p>Specializes in stroke prevention, epilepsy, and movement disorders.</p>
+                        <div class="availability limited">Limited Availability</div>
+                        
+                        <div class="doctor-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Department:</span>
+                                <span class="detail-value">Neurology</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Consultation:</span>
+                                <span class="detail-value">$220</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Timing:</span>
+                                <span class="detail-value">Tue-Thu, 9AM-4PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="doctor-contact">
+                            <a href="appointment.html" class="contact-btn btn-consult">Book Appointment</a>
+                            <a href="#" class="contact-btn btn-profile">View Profile</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Doctor 4 -->
+                    <div class="doctor-card card pediatrics">
+                        <img src="images/dr_james.jpg" alt="Dr. James Wilson" class="doctor-img">
+                        <h3>Dr. James Wilson</h3>
+                        <div class="specialty">Pediatrician</div>
+                        <div class="qualification">MD, FAAP</div>
+                        <div class="experience">10+ Years Experience</div>
+                        <p>Specializes in child development, vaccinations, and pediatric emergencies.</p>
+                        <div class="availability available">Available</div>
+                        
+                        <div class="doctor-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Department:</span>
+                                <span class="detail-value">Pediatrics</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Consultation:</span>
+                                <span class="detail-value">$150</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Timing:</span>
+                                <span class="detail-value">Mon-Fri, 8AM-4PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="doctor-contact">
+                            <a href="appointment.html" class="contact-btn btn-consult">Book Appointment</a>
+                            <a href="#" class="contact-btn btn-profile">View Profile</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Doctor 5 -->
+                    <div class="doctor-card card surgery">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Robert Kim" class="doctor-img">
+                        <h3>Dr. Robert Kim</h3>
+                        <div class="specialty">General Surgeon</div>
+                        <div class="qualification">MD, FACS</div>
+                        <div class="experience">20+ Years Experience</div>
+                        <p>Expert in laparoscopic surgery, trauma surgery, and surgical oncology.</p>
+                        <div class="availability available">Available</div>
+                        
+                        <div class="doctor-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Department:</span>
+                                <span class="detail-value">Surgery</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Consultation:</span>
+                                <span class="detail-value">$180</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Timing:</span>
+                                <span class="detail-value">Mon-Wed-Fri, 10AM-6PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="doctor-contact">
+                            <a href="appointment.html" class="contact-btn btn-consult">Book Appointment</a>
+                            <a href="#" class="contact-btn btn-profile">View Profile</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Doctor 6 -->
+                    <div class="doctor-card card cardiology">
+                        <img src="images/dr_lisa.jpg" alt="Dr. Lisa Wang" class="doctor-img">
+                        <h3>Dr. Lisa Wang</h3>
+                        <div class="specialty">Cardiac Surgeon</div>
+                        <div class="qualification">MD, FACC</div>
+                        <div class="experience">14+ Years Experience</div>
+                        <p>Specializes in coronary artery bypass, valve repair, and heart transplants.</p>
+                        <div class="availability limited">Limited Availability</div>
+                        
+                        <div class="doctor-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Department:</span>
+                                <span class="detail-value">Cardiac Surgery</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Consultation:</span>
+                                <span class="detail-value">$300</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Timing:</span>
+                                <span class="detail-value">Tue & Thu, 11AM-3PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="doctor-contact">
+                            <a href="appointment.html" class="contact-btn btn-consult">Book Appointment</a>
+                            <a href="#" class="contact-btn btn-profile">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Support Team Section -->
+                <section class="team-section">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Our Support Team</h2>
+                            <p>Dedicated professionals who ensure smooth hospital operations and patient care</p>
+                        </div>
+                        
+                        <div class="grid-4">
+                            <div class="team-card card">
+                                <div class="team-icon">
+                                    <i class="fas fa-user-nurse"></i>
+                                </div>
+                                <h3>Nursing Staff</h3>
+                                <p>Certified nurses providing 24/7 patient care with compassion and expertise.</p>
+                            </div>
+                            
+                            <div class="team-card card">
+                                <div class="team-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h3>Lab Technicians</h3>
+                                <p>Skilled technicians performing accurate diagnostic tests and analysis.</p>
+                            </div>
+                            
+                            <div class="team-card card">
+                                <div class="team-icon">
+                                    <i class="fas fa-x-ray"></i>
+                                </div>
+                                <h3>Radiology Team</h3>
+                                <p>Expert radiologists and technicians operating advanced imaging equipment.</p>
+                            </div>
+                            
+                            <div class="team-card card">
+                                <div class="team-icon">
+                                    <i class="fas fa-ambulance"></i>
+                                </div>
+                                <h3>Emergency Team</h3>
+                                <p>Trained paramedics and emergency responders providing immediate care.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Call to Action -->
+                <div class="text-center" style="margin-top: 40px;">
+                    <h3>Need to Consult a Specialist?</h3>
+                    <p style="margin-bottom: 20px;">Book an appointment with our expert doctors today.</p>
+                    <a href="appointment.html" class="btn btn-primary">Book Appointment Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MediCare Hospital</h3>
+                    <p>Providing compassionate, high-quality healthcare services to our community for over 25 years.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links contact-info-list">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Center Drive</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@medicarehospital.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8 AM - 8 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Doctor filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const deptButtons = document.querySelectorAll('.dept-btn');
+            const doctorCards = document.querySelectorAll('.doctor-card');
+            
+            deptButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    deptButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const deptValue = this.getAttribute('data-dept');
+                    
+                    // Show/hide doctor cards based on department
+                    doctorCards.forEach(card => {
+                        if (deptValue === 'all' || card.classList.contains(deptValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhakti-Vedant multi-speciality Hospital | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Home page specific styles */
+        .hero {
+            background: linear-gradient(rgba(9, 85, 85, 0.85), rgba(13, 125, 125, 0.9)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1153&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .features {
+            padding: 80px 0;
+            background-color: var(--secondary);
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 40px 25px;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(12, 109, 109, 0.9), rgba(15, 114, 114, 0.95)), url('https://images.unsplash.com/photo-1516549655669-df9b92f5d2a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .services-preview {
+            padding: 80px 0;
+        }
+        
+        .service-preview-card {
+            text-align: center;
+            padding: 40px 25px;
+        }
+        
+        .service-preview-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .view-all {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-hospital"></i></div>
+                <div class="logo-text">Medi<span>Care</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services & Facilities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="doctors.html">Doctors & Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Compassionate Care, Advanced Medicine</h1>
+                <p>MediCare Hospital provides comprehensive healthcare services with state-of-the-art technology and a patient-centered approach.</p>
+                <a href="appointment.html" class="btn">Book an Appointment</a>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Bhakti-Vedant multi-speciality</h2>
+                    <p>We are committed to providing exceptional healthcare services with compassion and expertise.</p>
+                </div>
+                
+                <div class="grid-3">
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Expert Doctors</h3>
+                        <p>Our team consists of highly qualified specialists with years of experience in their respective fields.</p>
+                    </div>
+                    
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hospital-alt"></i>
+                        </div>
+                        <h3>Advanced Technology</h3>
+                        <p>We utilize cutting-edge medical technology for accurate diagnosis and effective treatments.</p>
+                    </div>
+                    
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Emergency Care</h3>
+                        <p>24/7 emergency services with rapid response teams and fully equipped emergency rooms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Preview -->
+        <section class="services-preview">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Key Services</h2>
+                    <p>Explore our comprehensive range of medical services</p>
+                </div>
+                
+                <div class="grid-3">
+                    <div class="service-preview-card card">
+                        <div class="service-preview-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Cardiology</h3>
+                        <p>Comprehensive heart care including diagnostic tests, interventions, and cardiac surgery.</p>
+                    </div>
+                    
+                    <div class="service-preview-card card">
+                        <div class="service-preview-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h3>Orthopedics</h3>
+                        <p>Treatment for bone, joint, and muscle conditions with advanced surgical techniques.</p>
+                    </div>
+                    
+                    <div class="service-preview-card card">
+                        <div class="service-preview-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Neurology</h3>
+                        <p>Diagnosis and treatment of disorders affecting the brain, spine, and nervous system.</p>
+                    </div>
+                </div>
+                
+                <div class="view-all">
+                    <a href="services.html" class="btn btn-primary">View All Services</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Need Immediate Medical Attention?</h2>
+                <p>Our emergency department is open 24/7 with expert medical staff ready to provide immediate care.</p>
+                <div class="emergency-contact">
+                    <h3><i class="fas fa-phone-alt"></i> Emergency: (123) 456-7891</h3>
+                </div>
+                <a href="contact.html" class="btn">Contact Emergency</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MediCare Hospital</h3>
+                    <p>Providing compassionate, high-quality healthcare services to our community for over 25 years.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links contact-info-list">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Center Drive</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@medicarehospital.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8 AM - 8 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

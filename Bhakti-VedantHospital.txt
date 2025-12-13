@@ -1,0 +1,9 @@
+Bhakti vedant multi speciality hospital--->Hospital_Name
+services,pages-->
+1.Home--->slider,about,services,facilities,doctor's and team, gallary, testimonial,footer() 
+2.About-->
+3.Services and Facilities
+4.Gallery-->hospital photos/images(offline)
+5.Contact(Information, address, location) 
+6.Doctor and team 
+7.Appoinment-->timing/schedule

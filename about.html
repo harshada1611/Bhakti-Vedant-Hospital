@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MediCare Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* About page specific styles */
+        .about-content {
+            margin-bottom: 60px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .values-section {
+            background-color: var(--secondary);
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(13, 125, 125, 0.9), rgba(13, 125, 125, 0.95));
+            color: var(--white);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        
+        .team-preview {
+            padding: 60px 0;
+        }
+        
+        .team-card {
+            text-align: center;
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--secondary);
+        }
+        
+        .team-card h3 {
+            margin-bottom: 5px;
+        }
+        
+        .team-card .position {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .stat-item h3 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-hospital"></i></div>
+                <div class="logo-text">Medi<span>Care</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="services.html">Services & Facilities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="doctors.html">Doctors & Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>About MediCare Hospital</h1>
+                <p>With over 25 years of experience, we are a trusted healthcare provider dedicated to improving community health.</p>
+            </div>
+        </section>
+        
+        <section class="page-content">
+            <div class="container">
+                <div class="about-content grid-2">
+                    <div>
+                        <h2>Our Story & Mission</h2>
+                        <h3>Our History</h3>
+                        <p>Founded in 1998, MediCare Hospital began as a small clinic with a vision to provide accessible, high-quality healthcare to our community. Over the years, we have grown into a state-of-the-art medical facility with multiple specialties.</p>
+                        <p>Our commitment to excellence has earned us recognition as one of the top healthcare providers in the region, with numerous awards for patient safety and quality of care.</p>
+                        <h3 style="margin-top: 20px;">Our Mission</h3>
+                        <p>At MediCare Hospital, our mission is to deliver compassionate, accessible, and high-quality healthcare services to every patient. We believe in treating the whole person, not just the illness.</p>
+                    </div>
+                    
+                    <div>
+                        <img src="images/Hospital_img.jpg" alt="Hospital Building">
+                    </div>
+                </div>
+                
+                <!-- Values Section -->
+                <section class="values-section">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Our Core Values</h2>
+                            <p>The principles that guide everything we do at MediCare Hospital</p>
+                        </div>
+                        
+                        <div class="grid-3">
+                            <div class="value-card card">
+                                <div class="value-icon">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <h3>Compassion</h3>
+                                <p>We treat every patient with empathy, kindness, and respect.</p>
+                            </div>
+                            
+                            <div class="value-card card">
+                                <div class="value-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h3>Excellence</h3>
+                                <p>We maintain the highest standards in medical care and service.</p>
+                            </div>
+                            
+                            <div class="value-card card">
+                                <div class="value-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Collaboration</h3>
+                                <p>We work together as a team to provide comprehensive care.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Stats Section -->
+                <section class="stats-section">
+                    <div class="container">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <h3>25+</h3>
+                                <p>Years of Service</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>50+</h3>
+                                <p>Expert Doctors</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>100+</h3>
+                                <p>Medical Staff</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>10K+</h3>
+                                <p>Patients Treated Yearly</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Team Preview -->
+                <div class="team-preview">
+                    <div class="section-title">
+                        <h2>Meet Our Leadership Team</h2>
+                        <p>Dedicated professionals leading our healthcare institution</p>
+                    </div>
+                    
+                    <div class="grid-4">
+                        <div class="team-card card">
+                            <img src="images/dr_james.jpg" alt="Medical Director" class="team-img">
+                            <h3>Dr. Robert Miller</h3>
+                            <div class="position">Medical Director</div>
+                            <p>20+ years of experience in hospital administration</p>
+                        </div>
+                        
+                        <div class="team-card card">
+                            <img src="images/dr_jennifer.jpg" alt="Head of Nursing" class="team-img">
+                            <h3>Jennifer Wilson</h3>
+                            <div class="position">Head of Nursing</div>
+                            <p>15+ years of nursing leadership experience</p>
+                        </div>
+                        
+                        <div class="team-card card">
+                            <img src="images/dr_emily.jpg" alt="Chief of Surgery" class="team-img">
+                            <h3>Dr. Amanda Lee</h3>
+                            <div class="position">Chief of Surgery</div>
+                            <p>Board-certified surgeon with 18 years experience</p>
+                        </div>
+                        
+                        <div class="team-card card">
+                            <img src="images/dr_michal.jpg" alt="Administration Director" class="team-img">
+                            <h3>Michael Brown</h3>
+                            <div class="position">Administration Director</div>
+                            <p>Expert in healthcare management and operations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center" style="margin-top: 40px;">
+                        <a href="doctors.html" class="btn btn-primary">View All Doctors</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MediCare Hospital</h3>
+                    <p>Providing compassionate, high-quality healthcare services to our community for over 25 years.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links contact-info-list">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Center Drive</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@medicarehospital.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8 AM - 8 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

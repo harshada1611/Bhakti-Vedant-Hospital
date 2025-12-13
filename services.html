@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Facilities | MediCare Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Services page specific styles */
+        .service-card {
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .service-link i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        .facilities-section {
+            background-color: var(--secondary);
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+        
+        .facility-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .facility-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .emergency-banner {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .emergency-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .emergency-phone {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        
+        .department-list {
+            margin-top: 40px;
+        }
+        
+        .department-item {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .department-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-hospital"></i></div>
+                <div class="logo-text">Medi<span>Care</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services & Facilities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="doctors.html">Doctors & Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Services & Facilities</h1>
+                <p>Comprehensive medical services and state-of-the-art facilities for all your healthcare needs.</p>
+            </div>
+        </section>
+        
+        <section class="page-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Medical Services</h2>
+                    <p>We offer a wide range of specialized medical services delivered by expert healthcare professionals.</p>
+                </div>
+                
+                <div class="grid-3">
+                    <div class="service-card card">
+                        <div class="service-img" style="background-image: url(images/Emergeancy_care.jpg);"></div>
+                        <div class="service-content">
+                            <h3>Emergency Care</h3>
+                            <p>24/7 emergency services with trauma care, critical care, and rapid response teams. Fully equipped emergency rooms with advanced life support systems.</p>
+                            <a href="appointment.html" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card card">
+                        <div class="service-img" style="background-image: url(images/cardiology.jpg);"></div>
+                        <div class="service-content">
+                            <h3>Cardiology</h3>
+                            <p>Comprehensive heart care including diagnostic tests, interventions, and cardiac surgery. Our cardiology department features advanced cardiac catheterization labs.</p>
+                            <a href="appointment.html" class="service-link">Consult Specialist <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card card">
+                        <div class="service-img" style="background-image: url(images/orthopedict.jpg);"></div>
+                        <div class="service-content">
+                            <h3>Orthopedics</h3>
+                            <p>Treatment for bone, joint, and muscle conditions including advanced joint replacement, sports medicine, and spine surgery with minimally invasive techniques.</p>
+                            <a href="appointment.html" class="service-link">See Specialist <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-3" style="margin-top: 30px;">
+                    <div class="service-card card">
+                        <div class="service-img" style="background-image: url(images/mertanility_care.jpg);"></div>
+                        <div class="service-content">
+                            <h3>Maternity Care</h3>
+                            <p>Complete prenatal, delivery, and postnatal care for mothers and newborns. Our maternity ward features private delivery rooms and NICU facilities.</p>
+                            <a href="appointment.html" class="service-link">Schedule Care <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card card">
+                        <div class="service-img" style="background-image: url(images/neurology.jpg);"></div>
+                        <div class="service-content">
+                            <h3>Neurology</h3>
+                            <p>Diagnosis and treatment of disorders affecting the brain, spine, and nervous system. Specialized stroke unit with 24/7 neurologist availability.</p>
+                            <a href="appointment.html" class="service-link">Consult Neurologist <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card card">
+                        <div class="service-img" style="background-image: url(images/diaglonostic.jpg);"></div>
+                        <div class="service-content">
+                            <h3>Diagnostic Imaging</h3>
+                            <p>Advanced imaging services including MRI, CT scans, ultrasound, and X-rays. State-of-the-art equipment with rapid reporting by expert radiologists.</p>
+                            <a href="appointment.html" class="service-link">Schedule Test <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Departments -->
+                <div class="department-list">
+                    <h3 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Additional Departments</h3>
+                    <div class="grid-3">
+                        <div class="department-item">
+                            <span class="department-name">Pediatrics</span>
+                            <a href="appointment.html" class="btn">Book</a>
+                        </div>
+                        <div class="department-item">
+                            <span class="department-name">Dermatology</span>
+                            <a href="appointment.html" class="btn">Book</a>
+                        </div>
+                        <div class="department-item">
+                            <span class="department-name">Gastroenterology</span>
+                            <a href="appointment.html" class="btn">Book</a>
+                        </div>
+                        <div class="department-item">
+                            <span class="department-name">Urology</span>
+                            <a href="appointment.html" class="btn">Book</a>
+                        </div>
+                        <div class="department-item">
+                            <span class="department-name">Ophthalmology</span>
+                            <a href="appointment.html" class="btn">Book</a>
+                        </div>
+                        <div class="department-item">
+                            <span class="department-name">ENT</span>
+                            <a href="appointment.html" class="btn">Book</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Facilities Section -->
+                <section class="facilities-section">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Our Facilities</h2>
+                            <p>Modern infrastructure and advanced equipment to ensure the best possible care</p>
+                        </div>
+                        
+                        <div class="grid-3">
+                            <div class="facility-card card">
+                                <div class="facility-icon">
+                                    <i class="fas fa-procedures"></i>
+                                </div>
+                                <h3>Operation Theaters</h3>
+                                <p>State-of-the-art surgical suites with laminar airflow and advanced monitoring systems.</p>
+                            </div>
+                            
+                            <div class="facility-card card">
+                                <div class="facility-icon">
+                                    <i class="fas fa-bed"></i>
+                                </div>
+                                <h3>Patient Rooms</h3>
+                                <p>Comfortable private and semi-private rooms with modern amenities and 24/7 nursing care.</p>
+                            </div>
+                            
+                            <div class="facility-card card">
+                                <div class="facility-icon">
+                                    <i class="fas fa-ambulance"></i>
+                                </div>
+                                <h3>Ambulance Services</h3>
+                                <p>24/7 ambulance services equipped with life support systems and trained paramedics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Emergency Banner -->
+                <div class="emergency-banner">
+                    <h3>24/7 Emergency Services</h3>
+                    <p>Our emergency department is always open with expert medical staff ready to provide immediate care.</p>
+                    <div class="emergency-phone">
+                        <i class="fas fa-phone-alt"></i> (123) 456-7891
+                    </div>
+                    <p>For life-threatening emergencies, call immediately or come directly to our emergency entrance.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MediCare Hospital</h3>
+                    <p>Providing compassionate, high-quality healthcare services to our community for over 25 years.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links contact-info-list">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Center Drive</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@medicarehospital.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8 AM - 8 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
