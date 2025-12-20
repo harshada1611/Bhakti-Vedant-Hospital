@@ -15,8 +15,10 @@
         
         .about-image img {
             width: 100%;
+            height: auto;
             border-radius: 8px;
             box-shadow: var(--shadow);
+            display: block;
         }
         
         .values-section {
@@ -68,7 +70,8 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
+            display: block;
             border: 5px solid var(--secondary);
         }
         
@@ -82,10 +85,212 @@
             margin-bottom: 15px;
         }
         
+        /* FIXED: Make grid classes responsive */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Responsive fixes */
+        @media (max-width: 992px) {
+            .about-content.grid-2 {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-content.grid-2 > div:first-child {
+                order: 2;
+            }
+            
+            .about-content.grid-2 > div:last-child {
+                order: 1;
+            }
+            
+            .grid-2, .grid-3, .grid-4 {
+                gap: 30px;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .values-section,
+            .stats-section,
+            .team-preview {
+                padding: 50px 0;
+                margin: 40px 0;
+            }
+            
             .stat-item h3 {
                 font-size: 2.5rem;
             }
+            
+            .value-card {
+                padding: 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .team-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            /* FIXED: Make grids responsive on tablet */
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            /* Keep team section as 2 columns on tablet */
+            .team-preview .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-header {
+                padding: 60px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .page-header p {
+                font-size: 1.1rem;
+                padding: 0 10px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+                line-height: 1.3;
+            }
+            
+            .values-section,
+            .stats-section,
+            .team-preview {
+                padding: 40px 0;
+                margin: 30px 0;
+            }
+            
+            .stats-grid,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .team-img {
+                width: 100px;
+                height: 100px;
+                border-width: 3px;
+            }
+            
+            .card {
+                padding: 20px 15px;
+                margin: 0 5px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            
+            .value-icon {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            
+            /* FIXED: Container padding for mobile */
+            .container {
+                padding: 0 15px;
+            }
+            
+            /* FIXED: Team section single column on mobile */
+            .team-preview .grid-4 {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            /* FIXED: Better spacing for mobile */
+            .about-content {
+                margin-bottom: 40px;
+            }
+            
+            p {
+                line-height: 1.6;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .page-header {
+                padding: 50px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .team-img {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .grid-2, .grid-3, .grid-4 {
+                gap: 15px;
+            }
+        }
+        
+        /* FIXED: Ensure all containers are responsive */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* FIXED: Make sure images don't overflow */
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -126,7 +331,7 @@
         <section class="page-content">
             <div class="container">
                 <div class="about-content grid-2">
-                    <div>
+                    <div class="about-text">
                         <h2>Our Story & Mission</h2>
                         <h3>Our History</h3>
                         <p>Founded in 1998, MediCare Hospital began as a small clinic with a vision to provide accessible, high-quality healthcare to our community. Over the years, we have grown into a state-of-the-art medical facility with multiple specialties.</p>
@@ -135,8 +340,8 @@
                         <p>At MediCare Hospital, our mission is to deliver compassionate, accessible, and high-quality healthcare services to every patient. We believe in treating the whole person, not just the illness.</p>
                     </div>
                     
-                    <div>
-                        <img src="images/Hospital_img.jpg" alt="Hospital Building">
+                    <div class="about-image">
+                        <img src="images/Hospital_img.jpg" alt="Hospital Building" loading="lazy">
                     </div>
                 </div>
                 
@@ -209,28 +414,28 @@
                     
                     <div class="grid-4">
                         <div class="team-card card">
-                            <img src="images/dr_james.jpg" alt="Medical Director" class="team-img">
+                            <img src="images/dr_james.jpg" alt="Medical Director" class="team-img" loading="lazy">
                             <h3>Dr. Robert Miller</h3>
                             <div class="position">Medical Director</div>
                             <p>20+ years of experience in hospital administration</p>
                         </div>
                         
                         <div class="team-card card">
-                            <img src="images/dr_jennifer.jpg" alt="Head of Nursing" class="team-img">
+                            <img src="images/dr_jennifer.jpg" alt="Head of Nursing" class="team-img" loading="lazy">
                             <h3>Jennifer Wilson</h3>
                             <div class="position">Head of Nursing</div>
                             <p>15+ years of nursing leadership experience</p>
                         </div>
                         
                         <div class="team-card card">
-                            <img src="images/dr_emily.jpg" alt="Chief of Surgery" class="team-img">
+                            <img src="images/dr_emily.jpg" alt="Chief of Surgery" class="team-img" loading="lazy">
                             <h3>Dr. Amanda Lee</h3>
                             <div class="position">Chief of Surgery</div>
                             <p>Board-certified surgeon with 18 years experience</p>
                         </div>
                         
                         <div class="team-card card">
-                            <img src="images/dr_michal.jpg" alt="Administration Director" class="team-img">
+                            <img src="images/dr_michal.jpg" alt="Administration Director" class="team-img" loading="lazy">
                             <h3>Michael Brown</h3>
                             <div class="position">Administration Director</div>
                             <p>Expert in healthcare management and operations</p>
@@ -288,54 +493,50 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-
-
-    <!-- Add this just before </body> tag -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mainNav = document.getElementById('mainNav');
-    
-    if (mobileMenuBtn && mainNav) {
-        mobileMenuBtn.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            
-            // Change icon between bars and X
-            const icon = this.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
         
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('#mainNav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mainNav.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+        if (mobileMenuBtn && mainNav) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                
+                // Change icon between bars and X
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mainNav.contains(event.target) && 
-                !mobileMenuBtn.contains(event.target) && 
-                mainNav.classList.contains('active')) {
-                mainNav.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    }
-});
-</script>
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('#mainNav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mainNav.contains(event.target) && 
+                    !mobileMenuBtn.contains(event.target) && 
+                    mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+    </script>
 </body>
 </html>
