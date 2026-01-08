@@ -367,96 +367,74 @@
 
     <script src="script.js"></script>
     <script>
-        // Appointment form specific functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const appointmentForm = document.getElementById('appointmentForm');
-            const timeSlots = document.querySelectorAll('.time-slot');
-            const selectedTimeInput = document.getElementById('selectedTime');
-            const confirmationMessage = document.getElementById('confirmationMessage');
-            const referenceNumberSpan = document.getElementById('referenceNumber');
-            
-            // Time slot selection
-            timeSlots.forEach(slot => {
-                slot.addEventListener('click', function() {
-                    // Remove selected class from all slots
-                    timeSlots.forEach(s => s.classList.remove('selected'));
-                    
-                    // Add selected class to clicked slot
-                    this.classList.add('selected');
-                    
-                    // Set hidden input value
-                    selectedTimeInput.value = this.getAttribute('data-time');
-                });
-            });
-            
-            // Set minimum date for appointment
-            const appointmentDateInput = document.getElementById('appointmentDate');
-            if (appointmentDateInput) {
-                const today = new Date();
-                const tomorrow = new Date(today);
-                tomorrow.setDate(tomorrow.getDate() + 1);
-                const maxDate = new Date(today);
-                maxDate.setMonth(maxDate.getMonth() + 3);
-                
-                appointmentDateInput.min = tomorrow.toISOString().split('T')[0];
-                appointmentDateInput.max = maxDate.toISOString().split('T')[0];
-            }
-            
-            // Set max date for date of birth
-            const dobInput = document.getElementById('dob');
-            if (dobInput) {
-                const today = new Date();
-                const minDate = new Date(today.getFullYear() - 120, today.getMonth(), today.getDate());
-                const maxDate = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
-                
-                dobInput.min = minDate.toISOString().split('T')[0];
-                dobInput.max = maxDate.toISOString().split('T')[0];
-            }
-            
-            // Generate random reference number
-            function generateReferenceNumber() {
-                const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                const numbers = '0123456789';
-                let ref = 'MC-2023-';
-                
-                for (let i = 0; i < 5; i++) {
-                    ref += numbers.charAt(Math.floor(Math.random() * numbers.length));
-                }
-                
-                return ref;
-            }
-            
-            // Form submission
-            if (appointmentForm) {
-                appointmentForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Validate time slot selection
-                    if (!selectedTimeInput.value) {
-                        alert('Please select a preferred time slot.');
-                        return;
-                    }
-                    
-                    // Generate reference number
-                    const refNumber = generateReferenceNumber();
-                    referenceNumberSpan.textContent = refNumber;
-                    
-                    // Show confirmation message
-                    confirmationMessage.classList.add('show');
-                    
-                    // Reset form
-                    this.reset();
-                    
-                    // Reset time slots
-                    timeSlots.forEach(slot => slot.classList.remove('selected'));
-                    selectedTimeInput.value = '';
-                    
-                    // Scroll to confirmation
-                    confirmationMessage.scrollIntoView({ behavior: 'smooth' });
-                });
-            }
+document.addEventListener('DOMContentLoaded', function() {
+
+    const appointmentForm = document.getElementById("appointmentForm");
+    const timeSlots = document.querySelectorAll('.time-slot');
+    const selectedTimeInput = document.getElementById('selectedTime');
+
+    // ================= TIME SLOT SELECTION =================
+    timeSlots.forEach(slot => {
+        slot.addEventListener('click', function() {
+            timeSlots.forEach(s => s.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedTimeInput.value = this.getAttribute('data-time');
         });
-    </script>
+    });
+
+    // ================= FORM SUBMIT =================
+    appointmentForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        if (!selectedTimeInput.value) {
+            alert("Please select time slot");
+            return;
+        }
+
+        // 🔥 DATA OBJECT (THIS GOES TO SPRING BOOT)
+        const appointmentData = {
+            fullName: document.getElementById("fullName").value,
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            dob: document.getElementById("dob").value,
+            department: document.getElementById("department").value,
+            doctor: document.getElementById("doctor").value,
+            appointmentDate: document.getElementById("appointmentDate").value,
+            timeSlot: selectedTimeInput.value,
+            appointmentType: document.getElementById("appointmentType").value,
+            symptoms: document.getElementById("symptoms").value,
+            insurance: document.getElementById("insurance").value
+        };
+
+        // 🔥 BACKEND CALL
+        fetch("http://localhost:8080/api/appointments", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(appointmentData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Server Error");
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert("Appointment Booked Successfully!");
+            appointmentForm.reset();
+            timeSlots.forEach(s => s.classList.remove('selected'));
+            selectedTimeInput.value = "";
+        })
+        .catch(error => {
+            alert("Backend Error! Check Spring Boot Server");
+            console.error(error);
+        });
+    });
+
+});
+</script>
+
 
     <!-- Add this just before </body> tag -->
 <script>
